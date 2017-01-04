@@ -1,3 +1,1 @@
-This is a test of the changes that I'm making.  Woot.  Woot.
-
-Chris added this.
+WDI Project 3
