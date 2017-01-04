@@ -4,6 +4,7 @@ var recipeSchema = new mongoose.Schema({
     recipe = {
     title: string,
     time: string,
+    difficulty: string,
     ingredients : [
        {quantity: number, unit: string, name: string},
     ]
