@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-const Recipe = require('./models/recipe');
+const Recipe = require('../models/recipe');
 
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
