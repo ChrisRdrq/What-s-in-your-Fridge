@@ -5,7 +5,6 @@ var router = express.Router();
 var User = require('../models/user.js');
 
 // error handler
-
 function makeError(res, message, status) {
   res.statusCode = status;
   var error = new Error(message);
@@ -13,10 +12,13 @@ function makeError(res, message, status) {
   return error;
 }
 
-// test route to make sure everything is working
+// Index Page
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
+    res.render( 'index', { title: 'What\'s in Your Fridge' });
+    console.log('Fridge Index Page Rendered')
 });
+
+
 
 
 /* GET home page. */
