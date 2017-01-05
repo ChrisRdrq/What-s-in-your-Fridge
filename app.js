@@ -14,7 +14,7 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-connect to database
+//connect to database
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
