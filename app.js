@@ -4,9 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var login = require('./routes/passport');
+var signup = require('./routes/authenticate');
 
 var app = express();
 
@@ -14,7 +20,7 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-connect to database
+//connect to database
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
@@ -44,6 +50,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+// required for passport
+app.use(session({ secret: 'Makin too much money!'}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+require('./routes/passport')(passport); // pass passport for configuration
+require('./routes/authenticate')(app, passport);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
