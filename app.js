@@ -10,9 +10,9 @@ var session = require('express-session');
 
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var login = require('./routes/passport');
 var signup = require('./routes/authenticate');
+var fridge = require('./routes/fridge');
 
 var app = express();
 
@@ -49,7 +49,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/fridge', fridge);
+
 
 // required for passport
 app.use(session({ secret: 'Makin too much money!'}));
