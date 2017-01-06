@@ -13,7 +13,7 @@ function makeError(res, message, status) {
 }
 
 // Index Page
-router.get('/profile', function(req, res) {
+router.get('/', function(req, res) {
     res.render( 'index', { title: 'What\'s in Your Fridge' });
     console.log('Fridge Index Page Rendered')
 });
