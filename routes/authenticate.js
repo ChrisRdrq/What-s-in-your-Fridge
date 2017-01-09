@@ -10,11 +10,10 @@ module.exports = function(app, passport){
 
 	// CREATE route: adds ingredient to current user ingredients array
 	app.post('/ingredients/add', isLoggedIn, function(req, res, next) {
-			console.log(req.body);
-	    req.user.ingredients.push(req.body);
+			console.log(req.body.ingredients);
+	    req.user.ingredients.push(req.body.ingredients);
 	    req.user.save()
 	        .then(function() {
-	            console.log(req.user.ingredients);
 	            res.redirect('/fridge');
 	        }, function(err) {
 	            return next(err);
