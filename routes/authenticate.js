@@ -1,10 +1,11 @@
-
+var User = require('../models/user.js');
+var Recipe = require('../models/recipe.js');
 
 module.exports = function(app, passport){
 	// PROFILE SECTION =========================
 	app.get('/fridge', isLoggedIn, function(req, res) {
-		res.render('profile');
-		console.log(req.user);
+		var user = req.user;
+		res.render('profile', { user: user });
 	});
 
 	// CREATE route: adds ingredient to current user ingredients array

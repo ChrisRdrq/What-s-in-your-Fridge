@@ -12,5 +12,13 @@
       <input type="submit" value="Submit">
     </form>
 
+    <ul>
+      <% if (user.ingredients.length > 0) { %>
+          <% for (let i=0; i < user.ingredients.length; i++) { %>
+              <li> <%= user.ingredients[i] %> </li>
+          <% } %>
+      <% } %>
+    </ul>
+
   </body>
 </html>
