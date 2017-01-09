@@ -16,6 +16,10 @@ var fridge = require('./routes/fridge');
 
 var app = express();
 
+// model variables
+var User = require('./models/user.js');
+var Recipe = require('./models/recipe.js');
+
 // mongoose
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
@@ -49,8 +53,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+<<<<<<< HEAD
 app.use('/fridge', fridge);
 
+=======
+app.use('/users', users);
+app.use('/fridge', fridge);
+>>>>>>> 2f11d5d1b34fb568d9b4c0be0bcfefd6a7a57e4a
 
 // required for passport
 app.use(session({ secret: 'Makin too much money!'}));
@@ -60,6 +69,12 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 require('./routes/passport')(passport); // pass passport for configuration
 require('./routes/authenticate')(app, passport);
+
+// This middleware will allow us to use the currentUser in our views and routes.
+app.use(function (req, res, next) {
+  global.currentUser = req.user;
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,12 +1,24 @@
+
+
 module.exports = function(app, passport){
 	// PROFILE SECTION =========================
 	app.get('/fridge', isLoggedIn, function(req, res) {
-		res.json({
-			user : req.user.ingredients
-		});
+		res.render('profile');
+		console.log(req.user);
 	});
 
-
+	// CREATE route: adds ingredient to current user ingredients array
+	app.post('/ingredients/add', isLoggedIn, function(req, res, next) {
+			console.log(req.body);
+	    req.user.ingredients.push(req.body);
+	    req.user.save()
+	        .then(function() {
+	            console.log(req.user.ingredients);
+	            res.redirect('/fridge');
+	        }, function(err) {
+	            return next(err);
+	        });
+	});
 
     // AUTHENTICATE (FIRST LOGIN) ==================================================
 	// locally --------------------------------
@@ -50,4 +62,7 @@ function isLoggedIn(req, res, next) {
 
 	res.redirect('/');
 };
+<<<<<<< HEAD
 >>>>>>> 9870a1dfe368dc3e60dc538e768fbaa654f8b4e9
+=======
+>>>>>>> 2f11d5d1b34fb568d9b4c0be0bcfefd6a7a57e4a

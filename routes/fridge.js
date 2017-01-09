@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+<<<<<<< HEAD
 // connection to user model
 var User = require('../models/user.js');
 
@@ -27,6 +28,19 @@ var User = require('../models/user.js');
     //     return res.redirect('/');
     // }
 
+=======
+// CREATE route: adds ingredient to current user ingredients array
+// router.post('/ingredients/add', function(req, res, next) {
+//     db.collection('users').save(req.body, (err,re))
+//     req.user.ingredients.addToSet(req.params.body);
+//     req.user.save()
+//         .then(function() {
+//             console.log(req.user.ingredients);
+//             res.redirect('/fridge');
+//         }, function(err) {
+//             return next(err);
+//         });
+>>>>>>> 2f11d5d1b34fb568d9b4c0be0bcfefd6a7a57e4a
 // });
 
 
