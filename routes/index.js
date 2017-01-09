@@ -12,7 +12,7 @@ function makeError(res, message, status) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.sendFile('../views/index.html');
+    res.render('../views/index.ejs');
 });
 
 module.exports = router;

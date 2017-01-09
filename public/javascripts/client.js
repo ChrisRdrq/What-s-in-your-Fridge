@@ -1,9 +1,9 @@
 const app = angular.module('fridgeApp', ['ui.router']);
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-    $stateProvider
-        .state('home', {
+app.config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('home', {
             url: '/',
-            templateUrl: '/views/index.html',
+            // templateUrl: './templates/home.html',
+            template: `<h1>Hello</h1>`,
             controller: 'homeCtrl',
             controllerAs: '$ctrl'
         });
@@ -11,5 +11,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 });
 
 app.controller('homeCtrl', function() {
-  title: 'Hello from Angular';
+  this.title = 'Hello from angular';
+  console.log('hello from angular');
 })

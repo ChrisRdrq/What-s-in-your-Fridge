@@ -11,7 +11,7 @@ module.exports = function(app, passport){
 	// CREATE route: adds ingredient to current user ingredients array
 	app.post('/ingredients/add', isLoggedIn, function(req, res, next) {
 			console.log(req.body);
-	    req.user.ingredients.push(req.body.ingredients);
+	    req.user.ingredients.push(req.body);
 	    req.user.save()
 	        .then(function() {
 	            console.log(req.user.ingredients);
@@ -20,6 +20,27 @@ module.exports = function(app, passport){
 	            return next(err);
 	        });
 	});
+
+	// DELETE route: adds ingredient to current user ingredients array
+	// app.delete('/ingredients/delete', isLoggedIn, function(req, res, next) {
+	// 		console.log(req.params);
+	// 		let ingredient = req.params;
+	// 		let index = req.user.ingredients.indexOf()
+	// 		for (let i=0; i < req.user.ingredients.length) {
+	// 				if req.params === req.user.ingredients[i] {
+	// 						req.user.ingredients.splice(index, 1);
+	// 				}
+	// 		}
+	// 		req.user.save()
+	// 				.then(function() {
+	// 						console.log(req.user.ingredients);
+	// 						res.redirect('/fridge');
+	// 				}, function(err) {
+	// 						return next(err);
+	// 				});
+	// });
+	//
+
 
     // AUTHENTICATE (FIRST LOGIN) ==================================================
 	// locally --------------------------------
