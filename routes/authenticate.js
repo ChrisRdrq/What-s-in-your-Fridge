@@ -4,6 +4,20 @@ module.exports = function(app, passport){
 	// PROFILE SECTION =========================
 	app.get('/fridge', isLoggedIn, function(req, res) {
 		res.render('profile');
+		console.log(req.user);
+	});
+
+	// CREATE route: adds ingredient to current user ingredients array
+	app.post('/ingredients/add', isLoggedIn, function(req, res, next) {
+			console.log(req.body);
+	    req.user.ingredients.push(req.body);
+	    req.user.save()
+	        .then(function() {
+	            console.log(req.user.ingredients);
+	            res.redirect('/fridge');
+	        }, function(err) {
+	            return next(err);
+	        });
 	});
 
     // AUTHENTICATE (FIRST LOGIN) ==================================================
