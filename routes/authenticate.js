@@ -1,11 +1,10 @@
+
+
 module.exports = function(app, passport){
 	// PROFILE SECTION =========================
 	app.get('/fridge', isLoggedIn, function(req, res) {
-		res.json({
-			user : req.user.ingredients
-		});
+		res.render('profile');
 	});
-
 
     // AUTHENTICATE (FIRST LOGIN) ==================================================
 	// locally --------------------------------
