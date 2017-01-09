@@ -6,6 +6,17 @@ module.exports = function(app, passport){
 		});
 	});
 
+	// CREATE ingredient
+router.post('/', function(req, res, next) {
+  Movie.create(req.body)
+  .then(function(savedMovie) {
+    res.json({ movie: savedMovie });
+  })
+  .catch(function(err) {
+    return next(err);
+  });
+});
+
 
 
     // AUTHENTICATE (FIRST LOGIN) ==================================================
