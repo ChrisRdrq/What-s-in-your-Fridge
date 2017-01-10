@@ -34,7 +34,7 @@ function handleError(err) {
 console.log('removing old users...');
 User.remove({})
 .then(function() {
-  console.log('creating some new user...');
+  console.log('creating some new users...');
   const chris   = new User({ email: "chris@test.com",
   password: "cccc",
   firstName: "chris",
