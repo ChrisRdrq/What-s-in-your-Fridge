@@ -1,10 +1,11 @@
-
+var User = require('../models/user.js');
+var Recipe = require('../models/recipe.js');
 
 module.exports = function(app, passport){
 	// PROFILE SECTION =========================
 	app.get('/fridge', isLoggedIn, function(req, res) {
-		res.render('profile');
-		console.log(req.user);
+		var user = req.user;
+		res.render('profile', { user: user });
 	});
 
 	// CREATE route: adds ingredient to current user ingredients array
@@ -19,6 +20,27 @@ module.exports = function(app, passport){
 	            return next(err);
 	        });
 	});
+
+	// DELETE route: adds ingredient to current user ingredients array
+	// app.delete('/ingredients/delete', isLoggedIn, function(req, res, next) {
+	// 		console.log(req.params);
+	// 		let ingredient = req.params;
+	// 		let index = req.user.ingredients.indexOf()
+	// 		for (let i=0; i < req.user.ingredients.length) {
+	// 				if req.params === req.user.ingredients[i] {
+	// 						req.user.ingredients.splice(index, 1);
+	// 				}
+	// 		}
+	// 		req.user.save()
+	// 				.then(function() {
+	// 						console.log(req.user.ingredients);
+	// 						res.redirect('/fridge');
+	// 				}, function(err) {
+	// 						return next(err);
+	// 				});
+	// });
+	//
+
 
     // AUTHENTICATE (FIRST LOGIN) ==================================================
 	// locally --------------------------------
