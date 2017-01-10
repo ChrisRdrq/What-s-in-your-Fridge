@@ -8,7 +8,8 @@ var userSchema = new mongoose.Schema({
     },
     firstName: String,
     lastName: String,
-    ingredients: Array
+    ingredients: Array,
+    favoriteRecipes: Array
 });
 
 // generating a hash

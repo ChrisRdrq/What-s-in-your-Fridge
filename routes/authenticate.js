@@ -5,8 +5,12 @@ module.exports = function(app, passport){
 	// PROFILE SECTION =========================
 	app.get('/fridge', isLoggedIn, function(req, res) {
 		var user = req.user;
+		console.log(user);
 		res.render('profile', { user: user });
 	});
+
+	// GET recipes
+
 
 	// CREATE route: adds ingredient to current user ingredients array
 	app.post('/ingredients/add', isLoggedIn, function(req, res, next) {
