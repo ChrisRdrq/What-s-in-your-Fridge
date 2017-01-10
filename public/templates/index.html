@@ -1,6 +1,10 @@
 <h1>What's in Your Fridge?</h1>
-<form ng-submit="$ctrl.submit()">
+<!-- <form ng-submit="$ctrl.submit()">
   <label>Ingredients: <input type="text" ng-model="$ctrl.ingredient"></label>
   <br>
   <input type="submit" value="Submit">
-</form>
+</form> -->
+
+<ul>
+    <li ng-repeat="recipe in $ctrl.recipes"> {{ recipe.title }} </li>
+</ul>
