@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
-// connection to user model
-var User = require('../models/user.js');
+var Recipe = require('../models/recipe.js');
 
 // error handler
 function makeError(res, message, status) {
@@ -12,18 +10,30 @@ function makeError(res, message, status) {
   return error;
 }
 
-// Index Page
-router.get('/', function(req, res) {
-    res.render( 'index', { title: 'What\'s in Your Fridge' });
-    console.log('Fridge Index Page Rendered')
-});
-
-
-
 
 /* GET home page. */
-// router.get('/', function(req, res, next) {
-//     res.render('index', { title: 'Express' });
-// });
+router.get('/', function(req, res, next) {
+    res.render('../views/index.ejs');
+});
+
+// GET all recipes
+router.get('/api/recipes', function(req, res, next) {
+  Recipe.find({})
+        .then(function(recipes) {
+              res.json(recipes);
+        })
+});
+
+// GET a specific recipe
+router.get('/api/recipes/:id', function(req, res, next) {
+  Recipe.findById(req.params.id)
+        .then(function(recipe) {
+            if (!recipe) return next(makeError(res, 'Document not found', 404));
+            res.json(recipe);
+        })
+        .catch(function(err) {
+            return next(err);
+        });
+});
 
 module.exports = router;

@@ -8,7 +8,8 @@ var userSchema = new mongoose.Schema({
     },
     firstName: String,
     lastName: String,
-    ingredients: Array
+    ingredients: Array,
+    favoriteRecipes: Array
 });
 
 // generating a hash
@@ -23,6 +24,3 @@ userSchema.methods.validPassword = function(password) {
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
-
-
-
