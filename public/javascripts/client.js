@@ -6,6 +6,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'indexCtrl',
             controllerAs: '$ctrl'
         });
+    $stateProvider.state('recipes', {
+            url: '/recipes',
+            templateUrl: './templates/recipes.html',
+            controller: 'recipesCtrl',
+            controllerAs: '$ctrl'
+        });
     $urlRouterProvider.otherwise('/');
 });
 
@@ -24,6 +30,10 @@ app.service('ingredientsService', function($http) {
 // controllers
 
 app.controller('indexCtrl', function($http) {
+    this.title = "What's in Your Fridge?";
+});
+
+app.controller('recipesCtrl', function($http) {
     var vm = this;
     vm.recipes = {};
 
