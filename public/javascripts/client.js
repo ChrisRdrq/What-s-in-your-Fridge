@@ -12,6 +12,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'recipesCtrl',
             controllerAs: '$ctrl'
         });
+    $stateProvider.state('recipeDetail', {
+            url: '/recipes/detail',
+            templateUrl: './templates/recipeDetail.html',
+            controller: 'recipeDetailCtrl',
+            controllerAs: '$ctrl'
+        });
     $urlRouterProvider.otherwise('/');
 });
 
@@ -45,16 +51,14 @@ app.controller('recipesCtrl', function($http) {
         vm.recipes = response.data;
         console.log(vm.recipes);
     })
-  // this.ingredient = {
-  //   ingredient: ''
-  // };
-  // this.submit = function() {
-  //   ingredientsService.addIngredient(this.ingredient)
-  //       .then( (response) => {
-  //           $state.go('ingredients');
-  //       })
-  //       .catch(function(err) {
-  //           alert('ERROR: ' + err);
-  //       });
-  // };
+});
+
+app.controller('recipesDetailCtrl', function($http) {
+    var vm = this;
+    vm.recipe = {};
+
+    $http({
+        method: 'GET',
+        url: '/api/recipes/:id'
+    })
 });
