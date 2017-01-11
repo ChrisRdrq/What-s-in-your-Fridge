@@ -12,6 +12,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'profileCtrl',
         controllerAs: '$ctrl'
     });
+    $stateProvider.state('getUsers', {
+        url: '/getusers',
+        templateUrl: './templates/profile.html',
+        controller: 'getUsersController',
+        controllerAs: '$ctrl'
+    })
     $stateProvider.state('recipes', {
         url: '/recipes',
         templateUrl: './templates/recipes.html',
@@ -77,6 +83,7 @@ app.controller('indexCtrl', function($http) {
 });
 
 app.controller('profileCtrl', function($http) {
+
     $http({
         method: 'GET',
         url: '/profile'

@@ -48,14 +48,13 @@ router.get('/login', function(req, res, next) {
 
 //GET logged in user and send to angular
 router.get('/user', authenticate, function(req, res,next) {
-  // User.findById(req.params.id)
+  // User.findById(req.params.id);
   var data = {
-    firstName: req.user.firstName,
-    lastName: req.user.lastName,
     id: req.user._id,
     ingredients: req.user.ingredients,
-    favoriteRecipes: req.user.favorites
+    favoriteRecipes: req.user.favoriteRecipes,
   };
+  console.log(data);
   res.send(data);
 });
 
