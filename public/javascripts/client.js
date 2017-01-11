@@ -98,10 +98,11 @@ app.controller('recipesCtrl', function($http) {
 });
 
 app.controller('recipeDetailCtrl', function($stateParams, recipeService) {
-            console.log($stateParams);
+            console.log($stateParams.id);
             recipeService.getRecipe($stateParams.id)
                 .then((response) => {
-                    this.recipe = response.data.recipe;
+                    this.recipe = response.data;
+                    console.log(response.data);
                 })
                 .catch(function(err) {
                     alert('ERROR: ' + err);
