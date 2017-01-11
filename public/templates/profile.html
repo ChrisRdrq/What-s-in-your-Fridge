@@ -1,16 +1,24 @@
-<h1>Profile Page</h1>
+<h1>What's in Your Fridge?</h1>
 
 
-<a ui-sref="recipes"> All Recipes </a>
+
 
 <form name= "myForm">
 <input name='searchBox' type='text' placeholder='Recipe search' ng-model='foodFilter.title'>
 <span ng-show='myForm.$submitted' ng-submit='submit()'>
 <ul>
-    <li ng-repeat="recipe in $ctrl.recipes | filter:foodFilter">
+    <li ng-repeat="recipe in $ctrl.recipes | filter:foodFilter:string">
         <a ui-sref="recipeDetail({id: recipe._id})"> {{ recipe.title }} </a>
     </li>
 </ul>
 </span>
-<button type='submit'>Submit</button>
+
+<button class="btn waves-effect blue" type="submit" name="action">Search
+    <i class="material-icons right"></i>
+</button>
+
+<button class="btn waves-effect blue right">
+    <a style="color: white;" ui-sref="recipes"> All Recipes </a>
+</button>
+
 </form>
