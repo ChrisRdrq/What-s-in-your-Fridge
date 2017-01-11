@@ -1,12 +1,33 @@
-<h1>{{ $ctrl.recipe.title }}</h1>
 
+
+<h1>{{ $ctrl.recipe.title }}</h1>
+<div class="container">
+<div class="row valign-wrapper center">
+    <div class="col s4 offset-s4">
+         <div class="card blue lighten-3 valign">
 <h4>Time:</h4>
 <p>{{ $ctrl.recipe.time }}</p>
-
+        </div>
+    </div>
+</div>
+<div class="row valign-wrapper center">
+    <div class="col s4 offset-s4">
+         <div class="card blue lighten-3 valign">
 <h4>Difficulty:</h4>
 <p>{{ $ctrl.recipe.difficulty }}</p>
-
+        </div>
+    </div>
+</div>
+<div class="row valign-wrapper center">
+    <div class="col s4 offset-s4">
+         <div class="card blue lighten-3 valign">
 <h4>Ingredients:</h4>
 <ul ng-repeat="i in [0,1,2,3]">
 <li> {{ $ctrl.recipe.ingredients[i].quantity}} {{ $ctrl.recipe.ingredients[i].unit }} of {{ $ctrl.recipe.ingredients[i].name }}</li>
 </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+
