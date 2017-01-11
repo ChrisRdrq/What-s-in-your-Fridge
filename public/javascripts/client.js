@@ -91,12 +91,16 @@ app.controller('recipesCtrl', function($http) {
     })
 });
 
-app.controller('recipesDetailCtrl', function($http) {
+app.controller('recipeDetailCtrl', function($http) {
     var vm = this;
-    vm.recipe = {};
+    vm.recipe = [];
 
     $http({
         method: 'GET',
         url: '/api/recipes/:id'
+    })
+    .then(function(response) {
+        vm.recipe = response.data;
+        console.log(vm.recipe);
     })
 });
