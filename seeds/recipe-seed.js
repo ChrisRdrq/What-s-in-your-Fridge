@@ -30,10 +30,10 @@ function handleError(err) {
   return err;
 }
 
-console.log('removing old movies...');
+console.log('removing old recipes...');
 Recipe.remove({})
 .then(function() {
-  console.log('creating some new movies...');
+  console.log('creating some new recipes...');
   const sweetSticky  = new Recipe({
     	title: "Sweet, Sticky and Spicy Chicken",
     	time: "22 minutes",

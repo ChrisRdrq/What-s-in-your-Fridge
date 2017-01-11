@@ -1,40 +1,14 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>What's in My Fridge?</title>
-  </head>
-  <body>
-  <header>
-  
-  <nav class="navbar navbar-inverse">
-    <a class="navbar-brand" href="#">Title</a>
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">Link</a>
-      </li>
-    </ul>
-  </nav>
-
-  </header>
-  
-    <h1>New Ingredients</h1>
-    <form method="POST" action="ingredients/add">
-      <label>Ingredients: <input type="text" name="ingredients" id="ingredients" placeholder="Add Food Here"></label>
-      <br>
-      <input type="submit" value="Submit">
-    </form>
-
-    <ul>
-      <% if (user.ingredients.length > 0) { %>
-          <% for (let i=0; i < user.ingredients.length; i++) { %>
-              <li> <%= user.ingredients[i] %> </li>
-          <% } %>
-      <% } %>
-    </ul>
-
-  </body>
+<html ng-app="fridgeApp">
+	<head>
+		<meta charset="utf-8">
+		<title>What's in Your Fridge</title>
+		<link rel="stylesheet" href="public/stylesheets/style.css">
+	</head>
+	<body>
+		<main ui-view> </main>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+		<script src="/javascripts/client.js"></script>
+	</body>
 </html>
