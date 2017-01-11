@@ -2,13 +2,20 @@
 
 ## Overview
 
-For WDI project #2, I created a web application called Americana. Americana is the explorer's guide to the National Parks.
+For General Assembly's Web Development Immersive project #3, we created a MEAN stack web application called "What's in Your Fridge?". WIYF is the recipe generator for the busy cook.
 
-The app allows users to create an account and log in. The user can then view a list of all National Parks, as well as park-specific details, including location, description, and weather info. I used JSON data from the National Park Service Data API to create these pages.
+The app allows users to create an account and log in. The user can then input an ingredient into a search bar, and the query will return recipes containing that ingredient. The user can view a list of all api recipes, as well as recipe-specific details, including cook time, ingredients, and directions.
 
-The user can add national parks to her personal bucket list. Once the user visits a park, she can remove the park from her bucket list.
+The user can also add and remove recipes from his personal favorites list.
 
 **Live site:** https://frozen-thicket-34728.herokuapp.com/
+
+## Contributors
+
+- Jacob Nunn
+- Josh Owen
+- Chris Roderique
+- Kathryn Wood
 
 ## Technologies Used
 
