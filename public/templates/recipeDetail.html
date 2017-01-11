@@ -1,1 +1,12 @@
-<h1>Recipe Detail</h1>
+<h1>{{ $ctrl.recipe.title }}</h1>
+
+<h2>Time:</h2>
+<p>{{ $ctrl.recipe.time }}</p>
+
+<h2>Difficulty:</h2>
+<p>{{ $ctrl.recipe.difficulty }}</p>
+
+<h2>Ingredients:</h2>
+<ul ng-repeat="i in [0,1,2,3]">
+<li> {{ $ctrl.recipe.ingredients[i].quantity}} {{ $ctrl.recipe.ingredients[i].unit }} of {{ $ctrl.recipe.ingredients[i].name }}</li>
+</ul>

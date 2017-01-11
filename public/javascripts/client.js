@@ -7,29 +7,35 @@ app.config(function($stateProvider, $urlRouterProvider) {
     //         controllerAs: '$ctrl'
     //     });
     $stateProvider.state('profile', {
-            url: '/',
-            templateUrl: './templates/profile.html',
-            controller: 'recipesCtrl',
-            controllerAs: '$ctrl'
-        });
+        url: '/',
+        templateUrl: './templates/profile.html',
+        controller: 'profileCtrl',
+        controllerAs: '$ctrl'
+    });
+    $stateProvider.state('getUsers', {
+        url: '/getusers',
+        templateUrl: './templates/profile.html',
+        controller: 'getUsersController',
+        controllerAs: '$ctrl'
+    })
     $stateProvider.state('recipes', {
-            url: '/recipes',
-            templateUrl: './templates/recipes.html',
-            controller: 'recipesCtrl',
-            controllerAs: '$ctrl'
-        });
+        url: '/recipes',
+        templateUrl: './templates/recipes.html',
+        controller: 'recipesCtrl',
+        controllerAs: '$ctrl'
+    });
     $stateProvider.state('recipeDetail', {
-            url: '/recipes/detail',
-            templateUrl: './templates/recipeDetail.html',
-            controller: 'recipeDetailCtrl',
-            controllerAs: '$ctrl'
-        });
+        url: '/recipes/detail/:id',
+        templateUrl: './templates/recipeDetail.html',
+        controller: 'recipeDetailCtrl',
+        controllerAs: '$ctrl',
+    });
     $stateProvider.state('favorites', {
-            url: '/favorites',
-            templateUrl: './recipes.html',
-            controller: 'getUsersController',
-            controllerAs: '$ctrl'
-        });
+        url: '/favorites',
+        templateUrl: './recipes.html',
+        controller: 'getUsersController',
+        controllerAs: '$ctrl'
+    });
     $urlRouterProvider.otherwise('/');
 });
 
@@ -46,31 +52,38 @@ app.config(function($stateProvider, $urlRouterProvider) {
 // });
 
 app.service('userService', function($http) {
-  this.getUser = function() {
-    return $http.get('/user');
-  };
+    this.getUser = function() {
+        return $http.get('/user');
+    };
 });
+
+app.service('recipeService', function($http) {
+    this.getRecipe = function(id) {
+        return $http.get('/api/recipes/' + id);
+    };
+})
 
 // controllers
 
 app.controller('getUsersController', ['$http', 'userService', function($http, userService) {
-  var vm = this;
-  vm.user = {};
-  userService.getUser()
-      .then(function(response){
-          vm.user = response.data;
-          console.log(vm.user);
-      })
-      .catch(function(err){
-          console.log(err);
-      });
-  }]);
+    var vm = this;
+    vm.user = {};
+    userService.getUser()
+        .then(function(response) {
+            vm.user = response.data;
+            console.log(vm.user);
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+}]);
 
 app.controller('indexCtrl', function($http) {
     this.title = "What's in Your Fridge?";
 });
 
 app.controller('profileCtrl', function($http) {
+
     $http({
         method: 'GET',
         url: '/profile'
@@ -82,25 +95,23 @@ app.controller('recipesCtrl', function($http) {
     vm.recipes = {};
 
     $http({
-        method: 'GET',
-        url: '/api/recipes'
-    })
-    .then(function(response) {
-        vm.recipes = response.data;
-        console.log(vm.recipes);
-    })
+            method: 'GET',
+            url: '/api/recipes'
+        })
+        .then(function(response) {
+            vm.recipes = response.data;
+            console.log(vm.recipes);
+        })
 });
 
-app.controller('recipeDetailCtrl', function($http) {
-    var vm = this;
-    vm.recipe = [];
-
-    $http({
-        method: 'GET',
-        url: '/api/recipes/:id'
-    })
-    .then(function(response) {
-        vm.recipe = response.data;
-        console.log(vm.recipe);
-    })
+app.controller('recipeDetailCtrl', function($stateParams, recipeService) {
+            console.log($stateParams.id);
+            recipeService.getRecipe($stateParams.id)
+                .then((response) => {
+                    this.recipe = response.data;
+                    console.log(response.data);
+                })
+                .catch(function(err) {
+                    alert('ERROR: ' + err);
+                });
 });
