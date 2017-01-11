@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('profile', {
             url: '/',
             templateUrl: './templates/profile.html',
-            controller: 'profileCtrl',
+            controller: 'recipesCtrl',
             controllerAs: '$ctrl'
         });
     $stateProvider.state('recipes', {

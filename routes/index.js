@@ -26,14 +26,6 @@ function makeError(res, message, status) {
 }
 
 
-<<<<<<< HEAD
-
-
-
-/* GET home page. */
-=======
-// GET landing page
->>>>>>> f857c70032afe3189ea2206c19970adc2694a439
 router.get('/', function(req, res, next) {
     res.render('../views/index.ejs');
 });

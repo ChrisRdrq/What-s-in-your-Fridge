@@ -10,12 +10,7 @@ var session = require('express-session');
 
 
 var index = require('./routes/index');
-<<<<<<< HEAD
-var login = require('./routes/passport');
-var signup = require('./routes/authenticate');
-var fridge = require('./routes/fridge');
-=======
->>>>>>> f857c70032afe3189ea2206c19970adc2694a439
+
 
 var app = express();
 
@@ -75,14 +70,7 @@ app.use(function (req, res, next) {
 // server route
 app.use('/', index);
 
-<<<<<<< HEAD
-app.use('/fridge', fridge);
 
-=======
-app.use('/users', users);
-app.use('/fridge', fridge);
-=======
->>>>>>> f857c70032afe3189ea2206c19970adc2694a439
 
 
 // required for passport
