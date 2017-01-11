@@ -26,7 +26,6 @@ function makeError(res, message, status) {
 }
 
 
-// GET landing page
 router.get('/', function(req, res, next) {
     res.render('../views/index.ejs');
 });

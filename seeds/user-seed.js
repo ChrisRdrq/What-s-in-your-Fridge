@@ -34,21 +34,36 @@ function handleError(err) {
 console.log('removing old users...');
 User.remove({})
 .then(function() {
+<<<<<<< HEAD
+  console.log('creating some new user...');
+  const chris   = new User({
+    local: {
+      email: "chris@test.com",
+      password: "cccc"
+    },
+=======
   console.log('creating some new users...');
   const chris   = new User({ email: "chris@test.com",
   password: "cccc",
+>>>>>>> f857c70032afe3189ea2206c19970adc2694a439
   firstName: "chris",
   lastName:"roderique",
   ingredients: ["shrimp", "broccoli", "honey"] });
 
-  const josh = new User({ email: "josh@test.com",
-  password:"jjjj",
+  const josh = new User({
+    local: {
+      email: "josh@test.com",
+      password:"jjjj"
+    } ,
   firstName:"josh",
   lastName:"owen",
   ingredients: ["chicken breast", "spinach", "eggs"] });
 
-  const katie = new User({ email: "katie@test.com",
-  password:"kkkk",
+  const katie = new User({
+    local: {
+      email: "katie@test.com",
+      password:"kkkk"
+    },
   firstName:"katie",
   lastName:"wood",
   ingredients: [
