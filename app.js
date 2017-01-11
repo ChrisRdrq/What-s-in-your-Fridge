@@ -23,7 +23,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 //connect to database
-
+mongoose.connect('mongodb://kathrynwood:Clover24**@ds161018.mlab.com:61018/whatsinyourfridge');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

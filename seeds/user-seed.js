@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const User = require('../models/user');
 
-
+//connect to database
+mongoose.connect('mongodb://kathrynwood:Clover24**@ds161018.mlab.com:61018/whatsinyourfridge');
 
 // our script will not exit until we have disconnected from the db.
 function quit() {
