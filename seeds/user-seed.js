@@ -34,12 +34,18 @@ function handleError(err) {
 console.log('removing old users...');
 User.remove({})
 .then(function() {
+<<<<<<< HEAD
   console.log('creating some new user...');
   const chris   = new User({
     local: {
       email: "chris@test.com",
       password: "cccc"
     },
+=======
+  console.log('creating some new users...');
+  const chris   = new User({ email: "chris@test.com",
+  password: "cccc",
+>>>>>>> f857c70032afe3189ea2206c19970adc2694a439
   firstName: "chris",
   lastName:"roderique",
   ingredients: ["shrimp", "broccoli", "honey"] });

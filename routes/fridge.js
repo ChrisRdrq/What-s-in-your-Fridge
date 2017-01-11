@@ -40,7 +40,7 @@ var User = require('../models/user.js');
 //         }, function(err) {
 //             return next(err);
 //         });
->>>>>>> 2f11d5d1b34fb568d9b4c0be0bcfefd6a7a57e4a
+
 // });
 
 

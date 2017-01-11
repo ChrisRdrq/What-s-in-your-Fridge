@@ -78,8 +78,7 @@ module.exports = function(app, passport){
 			return signupStrategy(req, res, next);
 		});
 };
-<<<<<<< HEAD
-=======
+
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
@@ -88,7 +87,3 @@ function isLoggedIn(req, res, next) {
 
 	res.redirect('/');
 };
-<<<<<<< HEAD
->>>>>>> 9870a1dfe368dc3e60dc538e768fbaa654f8b4e9
-=======
->>>>>>> 2f11d5d1b34fb568d9b4c0be0bcfefd6a7a57e4a
