@@ -3,19 +3,22 @@
 
 
 
-<form name= "myForm">
-<input name='searchBox' type='text' placeholder='Recipe search' ng-model='foodFilter.title'>
-<span ng-show='myForm.$submitted' ng-submit='submit()'>
+<form name= "myForm" >
+<input name='searchBox' type= 'text' placeholder='Start search' ng-model='foodFilter.title' ng-minlength='3' required>
+<!-- <span ng-show='myForm.$submitted'  ng-submit='submit()'> -->
+  <span ng-hide="myForm.searchBox.$invalid" >
 <ul>
     <li ng-repeat="recipe in $ctrl.recipes | filter:foodFilter:string">
         <a ui-sref="recipeDetail({id: recipe._id})"> {{ recipe.title }} </a>
+        <!-- <br> -->
+        <!-- {{ $index }} number entries found! -->
+
     </li>
+
 </ul>
 </span>
 
-<button class="btn waves-effect blue" type="submit" name="action">Search
-    <i class="material-icons right"></i>
-</button>
+<p ng-show="($ctrl.recipes | filter:foodFilter).length == 0"> ...no recipes found </p>
 
 <button class="btn waves-effect blue right">
     <a style="color: white;" ui-sref="recipes"> All Recipes </a>
