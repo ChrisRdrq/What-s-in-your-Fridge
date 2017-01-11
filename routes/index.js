@@ -26,10 +26,15 @@ function makeError(res, message, status) {
 }
 
 
-// GET home page
+// GET landing page
 router.get('/', function(req, res, next) {
     res.render('../views/index.ejs');
 });
+
+// GET profile page
+router.get('/profile', function(req, res, next) {
+    res.render('../views/profile.ejs');
+})
 
 // GET signup page
 router.get('/signup', function(req, res, next) {
@@ -67,7 +72,7 @@ router.post('/signup', function(req, res, next) {
   console.log('posting signup user:');
   console.log(req.body);
   var signUpStrategy = passport.authenticate('local-signup', {
-    successRedirect: '/',
+    successRedirect: '/profile',
     failureRedirect: '/',
     successFlash: true,
     failureFlash: true
@@ -79,7 +84,7 @@ router.post('/signup', function(req, res, next) {
 router.post('/login',
   passport.authenticate('local-login', {
     session: true,
-    successRedirect: '/',
+    successRedirect: '/profile',
     failureRedirect: '/login',
   })
   // function(req, res, next){

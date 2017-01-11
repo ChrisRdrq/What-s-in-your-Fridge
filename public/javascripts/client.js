@@ -1,9 +1,15 @@
 const app = angular.module('fridgeApp', ['ui.router']);
 app.config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('index', {
+    // $stateProvider.state('index', {
+    //         url: '/',
+    //         templateUrl: './templates/index.html',
+    //         controller: 'indexCtrl',
+    //         controllerAs: '$ctrl'
+    //     });
+    $stateProvider.state('profile', {
             url: '/',
-            templateUrl: './templates/index.html',
-            controller: 'indexCtrl',
+            templateUrl: './templates/profile.html',
+            controller: 'profileCtrl',
             controllerAs: '$ctrl'
         });
     $stateProvider.state('recipes', {
@@ -62,6 +68,13 @@ app.controller('getUsersController', ['$http', 'userService', function($http, us
 
 app.controller('indexCtrl', function($http) {
     this.title = "What's in Your Fridge?";
+});
+
+app.controller('profileCtrl', function($http) {
+    $http({
+        method: 'GET',
+        url: '/profile'
+    })
 });
 
 app.controller('recipesCtrl', function($http) {
