@@ -53,13 +53,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-<<<<<<< HEAD
+
 app.use('/fridge', fridge);
 
 =======
 app.use('/users', users);
 app.use('/fridge', fridge);
->>>>>>> 2f11d5d1b34fb568d9b4c0be0bcfefd6a7a57e4a
+
 
 // required for passport
 app.use(session({ secret: 'Makin too much money!'}));
