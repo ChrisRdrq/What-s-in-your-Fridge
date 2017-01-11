@@ -2,7 +2,7 @@
 
 ## Overview
 
-For General Assembly's Web Development Immersive project #3, we created a MEAN stack web application called "What's in Your Fridge?". WIYF is the recipe generator for the busy cook.
+For General Assembly's Web Development Immersive project #3, we created a MEAN stack web application called "What's in your Fridge?". WIYF is the recipe generator for the busy cook.
 
 The app allows users to create an account and log in. The user can then input an ingredient into a search bar, and the query will return recipes containing that ingredient. The user can view a list of all api recipes, as well as recipe-specific details, including cook time, ingredients, and directions.
 
@@ -35,7 +35,4 @@ The user can also add and remove recipes from his personal favorites list.
 
 ## Future Development Goals
 
-- Allow user to add reviews for parks
-- Incorporate gamification (add badges for every increment of 5 visits)
-- Add images to park cards
-- Optimize images
+- Replace Passport with JSON Web Tokens
