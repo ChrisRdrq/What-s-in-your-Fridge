@@ -2,10 +2,9 @@
 
 
 <a ui-sref="recipes"> All Recipes </a>
-<br>
-<br>
-<form name= "myForm" >
-<input name='searchBox' type= 'text' placeholder='Recipe search' ng-model='foodFilter.title'>
+
+<form name= "myForm">
+<input name='searchBox' type='text' placeholder='Recipe search' ng-model='foodFilter.title'>
 <span ng-show='myForm.$submitted' ng-submit='submit()'>
 <ul>
     <li ng-repeat="recipe in $ctrl.recipes | filter:foodFilter">
@@ -13,7 +12,6 @@
     </li>
 </ul>
 </span>
-<button type= 'submit'>Submit</button>
-
+<button type='submit'>Submit</button>
 </form>
 
