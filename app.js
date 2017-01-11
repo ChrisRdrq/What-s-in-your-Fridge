@@ -11,6 +11,7 @@ var session = require('express-session');
 
 var index = require('./routes/index');
 
+
 var app = express();
 
 // model variables
@@ -68,6 +69,8 @@ app.use(function (req, res, next) {
 
 // server route
 app.use('/', index);
+
+
 
 
 // required for passport
