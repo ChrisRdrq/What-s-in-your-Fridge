@@ -10,11 +10,13 @@ var session = require('express-session');
 
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-var login = require('./routes/passport');
-var signup = require('./routes/authenticate');
+
 
 var app = express();
+
+// model variables
+var User = require('./models/user.js');
+var Recipe = require('./models/recipe.js');
 
 // mongoose
 var mongoose = require('mongoose');
@@ -47,9 +49,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: 'test cookie',
+				  cookie: { maxAge: 30*24*60*60*1000 },
+				  resave: true,
+				  saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
+// REQUIRE passport strategy config files. (link them)
+var passportApplyConfig = require('./passport/passport.js');
+passportApplyConfig(passport);
+
+// USE function to set global.user (logged in user);
+app.use(function (req, res, next) {
+	global.currentUser = req.user;
+	next();
+});
+
+// server route
 app.use('/', index);
-app.use('/users', users);
+
+
+
 
 // required for passport
 app.use(session({ secret: 'Makin too much money!'}));
@@ -57,8 +79,12 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-require('./routes/passport')(passport); // pass passport for configuration
-require('./routes/authenticate')(app, passport);
+
+// This middleware will allow us to use the currentUser in our views and routes.
+app.use(function (req, res, next) {
+  global.currentUser = req.user;
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

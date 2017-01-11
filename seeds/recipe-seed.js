@@ -30,10 +30,17 @@ function handleError(err) {
   return err;
 }
 
-console.log('removing old movies...');
+<<<<<<< HEAD
+console.log('removing old recipies...');
 Recipe.remove({})
 .then(function() {
-  console.log('creating some new movies...');
+  console.log('creating some new recipies...');
+=======
+console.log('removing old recipes...');
+Recipe.remove({})
+.then(function() {
+  console.log('creating some new recipes...');
+>>>>>>> f857c70032afe3189ea2206c19970adc2694a439
   const sweetSticky  = new Recipe({
     	title: "Sweet, Sticky and Spicy Chicken",
     	time: "22 minutes",
