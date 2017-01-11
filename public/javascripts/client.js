@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('profile', {
         url: '/',
         templateUrl: './templates/profile.html',
-        controller: 'profileCtrl',
+        controller: 'recipesCtrl',
         controllerAs: '$ctrl'
     });
     $stateProvider.state('getUsers', {
@@ -17,7 +17,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: './templates/profile.html',
         controller: 'getUsersController',
         controllerAs: '$ctrl'
-    })
+    });
     $stateProvider.state('recipes', {
         url: '/recipes',
         templateUrl: './templates/recipes.html',
