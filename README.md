@@ -34,7 +34,7 @@ The user can also add and remove recipes from his personal favorites list.
 ![Imgur](http://i.imgur.com/9E9VrQe.jpg)
 
 ## Presentation
-![Haiku]()
+![Google Slides](https://docs.google.com/presentation/d/1W2YVh4dWrzV8uO9M2IFLaFCmLk0frreLPxO8kdIga0A/edit?usp=sharing)
 
 ## Future Development Goals
 
