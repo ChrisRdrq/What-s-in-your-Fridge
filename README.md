@@ -30,8 +30,8 @@ The user can also add and remove recipes from his personal favorites list.
 
 ## Wireframes
 
+![Imgur](http://i.imgur.com/NpdcY8m.jpg)
 ![Imgur](http://i.imgur.com/9E9VrQe.jpg)
-![Database](http://imgur.com/9E9VrQe)
 
 ## Presentation
 ![Haiku]()
