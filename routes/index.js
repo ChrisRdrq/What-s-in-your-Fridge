@@ -57,6 +57,13 @@ router.get('/user', authenticate, function(req, res,next) {
   res.send(data);
 });
 
+// POST to favorite router
+router.get('/favorites', function(req, res, next) {
+		req.user.favoriteRecipes.addToSet(req.params.id);
+    req.user.save();
+});
+
+
 //LOGOUT
 router.get('/logout', function(req,res){
   req.logout();

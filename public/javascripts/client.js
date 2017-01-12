@@ -55,6 +55,9 @@ app.service('userService', function($http) {
     this.getUser = function() {
         return $http.get('/user');
     };
+    this.addFavorites = function() {
+        return $http.get('/favorites');
+    };
 });
 
 app.service('recipeService', function($http) {
@@ -68,6 +71,10 @@ app.service('recipeService', function($http) {
 app.controller('getUsersController', ['$http', 'userService', function($http, userService) {
     var vm = this;
     vm.user = {};
+    userService.addFavorites()
+        .then(function(response) {
+            console.log(response)
+        });
     userService.getUser()
         .then(function(response) {
             vm.user = response.data;
