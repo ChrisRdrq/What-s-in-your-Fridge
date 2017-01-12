@@ -32,7 +32,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     });
     $stateProvider.state('favorites', {
         url: '/favorites',
-        templateUrl: './recipes.html',
+        templateUrl: './templates/favorites.html',
         controller: 'getUsersController',
         controllerAs: '$ctrl'
     });

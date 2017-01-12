@@ -85,32 +85,6 @@ router.post('/login',
     successRedirect: '/profile',
     failureRedirect: '/login',
   })
-  // function(req, res, next){
-  //   // var config = {userId: 'id', pa}
-  //   console.log('req  is ', req.body);
-  //   console.log('req.user  is ', req.user);
-
-    // res.render('index', {currentUserid:currentUser.id});
-    // req.session.user = user;
-    // console.log('global user is '+ currentUser);
-    // res.redirect('/users/' + req.user.id);
-    // res.redirect('/')
-    // console.log('attempting to login');
-    // console.log(req.body);
-    // var loginStrat = passport.authenticate('local-login', {
-    //     successRedirect: '/',
-    //     failureRedirect: '/login',
-    //     failureFlash: true
-    // });
-    // res.redirect('/users' + req.user.id);
-    // loginStrat(req, res, next)
-    // .then(function(success){
-    //   console.log(success);
-    // })
-    // .catch(function(err){
-    //   console.log(err);
-    // })
-// }
 );
 
 
@@ -133,5 +107,10 @@ router.get('/api/recipes/:id', function(req, res, next) {
             return next(err);
         });
 });
+
+// GET favorite recipes
+router.get('/favorites', function(req, res, next) {
+		res.json(req.user.favoriteRecipes);
+})
 
 module.exports = router;
