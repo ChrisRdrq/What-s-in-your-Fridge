@@ -30,9 +30,12 @@ The user can also add and remove recipes from his personal favorites list.
 
 ## Wireframes
 
-![Wireframe](./public/images/wireframe.jpg)
-![Database](./public/images/dbplan.jpg)
+![Wireframe](http://i.imgur.com/NpdcY8m.jpg)
+![Database](http://i.imgur.com/9E9VrQe.jpg)
 
 ## Future Development Goals
 
 - Replace Passport with JSON Web Tokens
+- Allow user to add and delete recipes from favorites
+- Integrate Yummly APIs to improve receipe selection and search
+- Allow user to save ingredients
