@@ -1,0 +1,23 @@
+body {
+  background-color: #90caf9;
+}
+
+h1 {
+  color: #ffffff;
+  background-color: #000000;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 20px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+img {
+  margin: 0 auto;
+  display: block;
+  max-height: 300px;
+}
+
+.btn {
+  margin-top: 5%;
+}

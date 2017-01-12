@@ -3,16 +3,28 @@
   margin-right: 5%;
 }
 
+.nav-wrapper {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.nav-logo {
+  height: 50px;
+  padding-top: 10px;
+}
+
 h1 {
   font-family: 'Bungee Shade', serif;
   font-size: 4em;
   text-align: center;
+  margin-bottom: 5%;
 }
 
-.index-btn {
-  /*margin-left: 50%;
-  margin-right: 50%;
-  margin-top: 1%;*/
+h3 {
+  text-align: center;
+  margin-top: 50px;
 }
 
-
+form {
+  margin: 0 25%;
+}
