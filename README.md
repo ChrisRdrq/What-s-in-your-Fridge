@@ -30,8 +30,11 @@ The user can also add and remove recipes from his personal favorites list.
 
 ## Wireframes
 
-![Wireframe](./public/images/wireframe.jpg)
-![Database](./public/images/dbplan.jpg)
+![Imgur](http://i.imgur.com/9E9VrQe.jpg)
+![Database](http://imgur.com/9E9VrQe)
+
+## Presentation
+![Haiku]()
 
 ## Future Development Goals
 
